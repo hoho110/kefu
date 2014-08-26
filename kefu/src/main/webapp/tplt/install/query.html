@@ -1,0 +1,36 @@
+<div class="pagediv" id="holdingLogWrap">
+	<div class="pagedesc">
+		<img src="img/ico1.jpg" >
+		您当前的位置：基础信息管理
+		/
+		<span class="font5">安装统计</span>
+	</div>
+	<ul id="finishOut" class="generalCons">
+		<li>
+			<span class="itemTitle">机型：</span>
+			<input type="text"  id="terminalType"/>
+		</li>
+		<li>
+			<span class="itemTitle">应用PKGName:</span>
+			<select  id="appPkgName">
+				<option value="NONE_VALUE">全部</option>						
+<!--#
+	for (var i = 0, l = apps.size(); i < l; i++) {
+		var app = apps.get(i); 
+#-->
+						<option value="+-app.pkgName-+">+-app.name-+</option>
+<!--#
+	}
+#-->
+			</select>
+		</li>
+		<li>
+			<span class="itemTitle">结束时间范围：</span>
+			<input type="text" class="txt timeRange" prop="from" id="from" readonly />
+			至
+			<input type="text" class="txt timeRange" prop="to" id="to" readonly />
+			<input type="button" id="statButton" value="统计" class="okBt" />
+		</li>
+	</ul>
+	<div id="detailQuery"></div>
+</div>

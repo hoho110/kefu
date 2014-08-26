@@ -1,0 +1,27 @@
+@CHARSET "UTF-8";
+
+/*
+---------------------日历控件下的样式---------------------------
+*/
+.__calendar {position:absolute;visibility:hidden;z-index:9999;border:1px solid #666666;width:186px;background-color: #FFF;font-family: sans-serif;}
+.__calendar table, .__calendar input {margin:0;padding:0} /*google webkit浏览器下的input有margin和padding*/
+.__calendar table {border-collapse:collapse;width:100%;border:0 none;text-align:center;line-height:18px;}
+.__calendar table, .__calendar select {font-size:12px;}
+.__calendar td, .__calendar th {border:1px solid #fff;padding:1px 0;font-weight: normal;line-height:inherit;text-align:inherit;} /*加入inherit，用冗余保证不受外部可能的css限制：如外部可能有类似th{text-align:left}*/
+.__calendar .ymContainer th, .__calendar .hmsContainer th {padding:2px 0;}
+.__calendar .tfooter th {padding-top:4px}
+.__calendar td.curDay {background-color:#00CC33;}
+.__calendar td.msover {background-color:#FFCC00;}
+.__calendar .tfooter th {text-align:right;width:17px;}
+.__calendar input {height:18px;}
+.__calendar input.previous,input.next {width:20px;width:22px\9;}/*IE6-9下的宽度设大一些*/
+.__calendar input.cmd {margin-right:7px;background: #EFEFEF none;width:auto;}
+.__calendar input.previous,input.next,input.cmd {border: 1px solid #CCCCCC;}
+.__calendar select.year {width:64px;}
+.__calendar select.month {width:60px;}
+.__calendar .hmsContainer select {margin:0 2px 0 1px;width:auto;height:auto;}
+.__calendar select option {-moz-padding-start:1px;-webkit-padding-start:0;}
+.__calendar .sat {color:#0000FF;}
+.__calendar .sun {color:#FF0000;}
+.__calendar .theader {background-color:#666666;color:#fff;}
+.__calendar .sat, .__calendar .sun, .__calendar .normal, .__calendar input, .__calendar select {background-color:#EFEFEF;}

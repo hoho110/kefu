@@ -1,0 +1,8 @@
+CREATE TABLE App (id INTEGER NOT NULL GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1) primary key, name varchar(255),installName varchar(255),path varchar(255),message varchar(1000),pkgName varchar(255))
+CREATE TABLE GeneralizationRule (id INTEGER NOT NULL GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1) primary key, terminalType varchar(255),imeiNum varchar(255),regionNum varchar(255),operation varchar(255),apps varchar(255))
+CREATE TABLE Register (id INTEGER NOT NULL GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1) primary key, terminalType varchar(255),imeiNum varchar(255),createTime Date)
+CREATE TABLE Install (id INTEGER NOT NULL GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1) primary key, terminalType varchar(255),imeiNum varchar(255),appName varchar(255),appPkgName varchar(255),createTime Date)
+CREATE TABLE Administrator (id INTEGER NOT NULL GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1) primary key, userName varchar(255),passWord varchar(255),role INTEGER)
+insert into Administrator(userName,passWord,role) values ('admin','123456',0)
+CREATE TABLE AdminRefApp (id INTEGER NOT NULL GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1) primary key, adminId INTEGER, appId INTEGER)
+CREATE TABLE XmlConfig (id INTEGER NOT NULL GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1) primary key, name varchar(255),path varchar(255),uploadUserId INTEGER)

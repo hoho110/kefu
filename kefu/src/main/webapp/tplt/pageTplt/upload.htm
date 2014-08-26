@@ -1,0 +1,94 @@
+<div class="tmptConf">
+	<style>
+.noborderiframe {
+	border: 0 none;
+	height: 26px;
+	width: 100px;
+	overflow: hidden;
+	margin: -6px;
+}
+</style>
+
+	<div class="pagediv">
+		<div class="pagedesc">
+			<img width="14px" height="13px" src="img/ico1.jpg">您当前的位置：个性化&nbsp;/&nbsp;模版管理&nbsp;
+		</div>
+		<div class="innerLeft">
+			<img class="mob_bian" width="166" height="131" src="img/mob_1.jpg">
+		</div>
+		<div class="innerRight">
+			<p>
+				<input id="template1" name="selectedTmp" onchange="getTempId('1')" type="radio" <!--# if(templateId == 1){ #-->checked="checked"<!--# } #-->/><span class="font_menu">模板1</span>
+			</p>
+			<!-- 模版id(以后要从后台动态获取) -->
+			<form target="template01"
+				action="/educhina/upload?tempid=1&type=template" method="post"
+				enctype="multipart/form-data">
+
+				<span>上传logo <input id="template01" type="file" name="file"><input
+					type="submit" value="上传"
+					onclick="return act.uploadLogo('template01');" /></span> <span><iframe
+						name="template01" height="32px" class="noborderiframe"
+						scrolling="no" frameborder="0"></iframe></span>
+			</form>
+			<!-- <input type="image" src="img/anniu15.gif" class="doChange" align="right"> -->
+
+			<p class="logotip">（logo尺寸：宽230px 高89px logo格式：gif ）</p>
+		</div>
+		<div id="footer" class="footer"></div>
+
+
+
+		<div class="innerLeft">
+			<img class="mob_bian" width="166" height="131" src="img/mob_3.jpg">
+		</div>
+
+		<div class="innerRight">
+			<p>
+				<input id="template2" name="selectedTmp" type="radio"
+					onchange="getTempId('2')"
+				<!--# if(templateId == 2){ #-->
+				checked="checked"
+				<!--# } #-->
+				></input><span class="font_menu">模板2</span>
+			</p>
+			<form target="template02"
+				action="/educhina/upload?tempid=2&type=template" method="post"
+				enctype="multipart/form-data">
+				<span>上传logo <input id="template02" type="file" name="file"><input
+					type="submit" value="上传"
+					onclick="return act.uploadLogo('template02');" /></span>
+				<iframe name="template02" height="32px" class="noborderiframe"
+					scrolling="no" frameborder="0"></iframe>
+			</form>
+
+			<p class="logotip">（logo尺寸：宽230px 高89px logo格式：gif ）</p>
+		</div>
+
+		<div id="footer" class="footer"></div>
+
+		<div style="padding-top: 8px; padding-bottom: 8px">
+			<input type="image" src="img/anniu15.gif" align="left"
+				onclick="setTemp()" /><span id="setTempResult"
+				style="color: red; font-size: 15px; padding-left: 15px"></span>
+		</div>
+	</div>
+
+
+	<!-- <div >
+		<div class="innerLeft"><img class="mob_bian" width="166" height="131" src="img/mob_1.jpg"></div>
+		<div class="innerRight">
+			<p><input name="selectedTmp" type="radio"></input><span class="font_menu">模板3</span></p>
+			<form target="template03" action="/educhina/upload" method="post"
+				enctype="multipart/form-data">
+				<span>上传logo <input id="template03" type="file" name="file"><input type="submit" value="上传" onclick="return act.uploadLogo(3);" /></span>
+				<iframe name="template03" height="32px"  class="noborderiframe" scrolling="no" frameborder="0"></iframe>
+			</form>
+			<input type="image" src="img/anniu15.gif" class="doChange" align="right">
+			
+			<p class="logotip">（logo尺寸：宽280px 高60px  logo格式：gif ）</p>
+		</div>
+		<div id="footer" class="footer"></div>
+	</div>
+	 -->
+</div>

@@ -1,0 +1,152 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>编辑帮助</title>
+<link type="text/css" rel="stylesheet" href="../../css/edu.css" />
+<script type="text/javascript" src="/easyservice-util/EasyServiceClientFullZ.js"></script>
+<script type="text/javascript" src="../../js/require_2.1.6.js"></script>
+<script type="text/javascript" src="../../js/requireJS_main4tplt.js"></script>
+<script type="text/javascript" src="../../js/lib/jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="../../js/plugin/uploadify/swfobject.js"></script>
+<script type="text/javascript" src="../../js/plugin/uploadify/jquery.uploadify.v2.1.4.min.js"></script>
+<link href="../../js/plugin/uploadify/uploadify.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+.edit .titlename{
+	display:inline-block;
+	width:110px;
+	text-align:right;
+	margin-right:10px;
+}
+.edit .userCmd, .edit #uploadWay{
+	text-align: left;
+}
+.edit #uploadWay{
+	margin:0 0 20px 50px;
+	
+}
+.edit #uploadArea{
+	margin-left:50px;
+}
+.edit .userCmd{
+	padding-left:130px;
+}
+#wrapper{
+	margin-top:25px;
+}
+</style>
+<script type="text/javascript">
+require(["jquery", "module/popup", 
+         "module/service_xml","module/service_admin"], function($, popup, service,adminService) {
+	$(function() {
+		var $ = jQuery;
+		var ctx = new EasyServiceClient.newContext();
+		var dbId = ctx.param["id"];
+		var xmlInfo;
+		var admin=adminService.getCurrentAdmin();
+		init();
+		
+		function init() {
+			var ctx = EasyServiceClient.newContext();
+			if(dbId) {
+				xmlInfo = service.find(parseInt(dbId));
+			} else {
+				xmlInfo = {
+					"_t_": "com.cnebula.kefu.service.model.XmlConfig",
+					id: 0,
+					name: "",
+					path:"",
+					uploadUserId:admin.id
+				};
+			}
+			ctx.xmlInfo = xmlInfo;
+			ejs.renderComplexNode("./editT.html", "#wrapper", ctx);
+			
+			
+			$(document).ready(function() {   
+  	          $("#uploadify").uploadify({   
+  	           'uploader'       : '../../js/plugin/uploadify/uploadify.swf',   
+  	           'script'         : '/kefu/upload/xml',//servlet的路径或者.jsp 这是访问servlet 'scripts/uploadif'    
+  	           'method'         :'Post',  //如果要传参数，就必须改为GET   
+  	           'cancelImg'      : '../../js/plugin/uploadify/cancel.png',   
+  	           'folder'         : 'UploadFile', //要上传到的服务器路径，   
+  	           'queueID'        : 'fileQueue',   
+  	           'auto'           : true, //选定文件后是否自动上传，默认false   
+  	           'multi'          : false, //是否允许同时上传多文件，默认false   
+  	           'simUploadLimit' : 1, //一次同步上传的文件数目     
+  	           'sizeLimit'      : 1048576000, //设置单个文件大小限制，单位为byte,当前限制为1000M     
+  	           'queueSizeLimit' : 5, //限制在一次队列中的次数（可选定几个文件）。默认值= 999，而一次可传几个文件有 simUploadLimit属性决定。   
+  	           'fileDesc'       : '支持格式:不限', //如果配置了以下的'fileExt'属性，那么这个属性是必须的     
+  	           'fileExt'        : '*.xml',//允许的格式   
+	  	       'onError'       :function(event,queueID,fileObj,errorObj){ 
+	  	    	   		if(errorObj.info=='901')
+	  	    		   {
+	  	    		   		alert("文件:"+fileObj.name+"已经存在!");
+	  	    		   		return;
+	  	    		   }else if(errorObj.info=='902')
+	  	    		   {
+	  	    		   		alert("文件名代表版本，必须为整数!");
+	  	    		   		return;
+	  	    		   }
+	                 	alert("文件:"+fileObj.name+"上传失败!失败的原因是:"+errorObj.type); 
+	              }, 
+			   'onComplete'  :function(event,queueId,fileObj,response,data){//ajax返回，所有文件上传之后的回调 
+				   $("#name").val(fileObj.name);
+				   $("#path").val(fileObj.name);
+				   xmlInfo.name =fileObj.name;
+				   xmlInfo.path=fileObj.name;
+		           alert("文件:"+fileObj.name+"上传成功!"); 
+			     }
+  	          });   
+  	         });
+		}
+	
+		$(".cancel").bind("click", function() {
+			popup.closeWindow();
+		});
+	
+		$(".ok").bind("click", function() {
+			if(dbId){
+				try {
+					service.update(xmlInfo);
+					popup.closeWindow();
+				} catch(e) {
+					alert("更新失败");
+				}
+			} else {
+				try {
+					if(xmlInfo.name == ''||xmlInfo.path == '')
+					{
+						alert("请选择文件");
+						return;
+					}
+					service.create(xmlInfo);
+					popup.closeWindow();
+				} catch(e) {
+					alert("新增失败");
+				}
+			}
+			
+			parent.initSubMenu("xmlMenu");
+		});
+		
+		$("#name").bind("change", function() {
+			var jqObj = $(this);
+			var val = jqObj.val();
+			xmlInfo.name = val;
+		});
+	
+		$("#path").bind("change", function() {
+			var jqObj = $(this);
+			var val = jqObj.val();
+			xmlInfo.path = val;
+		});
+		window.mapModel = xmlInfo;
+	});	
+});
+</script>
+</head>
+<body class="edit">
+<div id="wrapper"></div>
+</body>
+</html>

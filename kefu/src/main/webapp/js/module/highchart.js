@@ -1,0 +1,2 @@
+define(["plugin/highcharts"], function(){  
+});

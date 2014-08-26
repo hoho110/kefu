@@ -1,0 +1,61 @@
+<div>
+	<div>
+		<div>
+			<span>机型</span>
+			<input type="text" id="terminalType" value="+-ruleInfo.terminalType-+" />
+			<label for="terminalType">多项以逗号分隔</label>
+		</div>
+		<div>
+			<span>imei号</span>
+			<input type="text" id="imeiNum" value="+-ruleInfo.imeiNum-+"/>
+			<label for="imeiNum">多项以逗号分隔</label>	
+		</div>
+		<div>
+			<span>地区代码</span>
+			<input type="text" id="regionNum" value="+-ruleInfo.regionNum-+" />	
+			<label for="regionNum">多项以逗号分隔</label>	
+		</div>
+		<div>
+			<span>客户端行为方式</span>
+				<select id="operation">
+					<option value="prompt" +-(!(ruleInfo.operation))||(ruleInfo.operation == "prompt") ? 'selected' : ''-+>prompt</option>
+					<option value="autoinstall" +-(ruleInfo.operation == "autoinstall") ? 'selected' : ''-+>autoinstall</option>
+					<option value="notifydownload" +-(ruleInfo.operation == "notifydownload") ? 'selected' : ''-+>notifydownload</option>
+				</select>
+		</div>
+		<div>
+			<span>推荐应用</span>
+			<br/>
+			<ul>
+			<div class="lt fieldsWrapper">
+				<!--#  
+					for (var i = 0; i < apps.size(); i++) {
+						var app=apps.get(i);
+						var checked = "";
+						for(var j=0;j<appKeys.size();j++)
+						{
+							if(app.id==appKeys.get(j))
+							{
+								checked="checked";
+							}
+						}
+						if (i%4 == 0) {
+				#-->
+					<br/>
+					<!--#  
+							} 
+					#-->
+					<div class="lt virtualCenter"><input type="checkbox"  value="+-app.id-+" +-checked-+/>+-app.name-+</div>
+				<!--#  
+					} 
+				#-->
+			</div>
+			</ul>
+		</div>
+		<br/>
+		<div>
+			<input class="ok" type="button" value="确定"/>
+			<input class="cancel" type="button" value="取消"/>
+		</div>
+	</div>
+</div>

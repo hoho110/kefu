@@ -1,0 +1,28 @@
+<div>
+	<div>
+		<div>
+			<span style="color: red;">
+				请先将待上传xml文件的文件名改为"version.xml"格式
+				<br>
+				其中version表示文件的版本，必须为数字;文件后缀必须为xml
+				<br>
+				示例：“3.xml”
+			</span>
+		</div>
+		<div>
+			<span>应用名称</span>
+			<input type="text" id="name" value="+-xmlInfo.name-+" disabled="disabled"/>
+		</div>
+		<div id="fileQueue">
+			<input type="file" name="uploadify" id="uploadify" />
+		</div>
+		<div>
+			<span>文件存放相对路径</span>
+			<input type="text" id="path" value="+-xmlInfo.path-+" disabled="disabled"/>		
+		</div>
+		<div>
+			<input class="ok" type="button" value="确定"/>
+			<input class="cancel" type="button" value="取消"/>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,126 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>KEFU管理页</title>
+<link type="text/css" rel="stylesheet" href="css/site_jui.ccss" />
+<link type="text/css" rel="stylesheet" href="css/demo_table_jui.css" />
+<link type="text/css" rel="stylesheet" href="css/jquery-ui-1.7.2.custom.yidu.css" />
+<link type="text/css" rel="stylesheet" href="css/yidu.jquery.dataTables.css" />
+<link type="text/css" rel="stylesheet" href="css/ColVis.css" />
+<link type="text/css" rel="stylesheet" href="css/flexselect.css"/>
+<link type="text/css" rel="stylesheet" href="css/jqgrid.css" />
+<link type="text/css" rel="stylesheet" href="css/dms.css" />
+<style type="text/css" title="currentStyle">
+/*
+ * Override styles needed due to the mix of three different CSS sources! For proper examples
+ * please see the themes example in the 'Examples' section of this site
+ */
+.dataTables_info { 
+	padding-top: 0; 
+}
+.dataTables_paginate { 
+	padding-top: 0; 
+}
+.css_right { 
+	float: right; 
+}
+#theme_links span { 
+	float: left; 
+	padding: 2px 10px; 
+}
+.dataTables_wrapper { 
+	-webkit-box-shadow: 2px 2px 6px #666; 
+	box-shadow: 2px 2px 6px #666; 
+	border-radius: 5px; 
+}
+.ui-widget-header { 
+	border: 1px solid #aaaaaa; 
+	background: #cccccc url(img/tableToolbarBackgroud.png) 50% 50% repeat-x; 
+	color: #222222; 
+	font-weight: bold; 
+}
+.ui-state-default, .ui-widget-content .ui-state-default {
+    background: url("img/tableHeaderBackgroud.png") repeat-x scroll 50% 50% #E6E6E6;
+}	
+</style>
+<link type="text/css" rel="stylesheet" href="css/edu.css" />
+<link href="js/plugin/uploadify/uploadify.css" rel="stylesheet" type="text/css" />
+<link type="text/css" rel="stylesheet" href="css/menu.css"/>
+<link type="text/css" rel="stylesheet" href="css/popup.css"/>
+<link type="text/css" rel="stylesheet" href="css/calendar.css"/>
+<script type="text/javascript" src="/easyservice-util/EasyServiceClientFullZ.js"></script>
+<script type="text/javascript" src="js/require_2.1.6.js" data-main="js/requireJS_main"></script>
+</head>
+<body>
+	<div id="pageContent"></div>
+	<textarea id="pageTmpl" class="hide" >
+		<div id="header">
+			<div class="topBg"><img src="./img/logo_admin.png"/></div>
+			<div id="noResolutionTip"></div>
+			<!--#  
+			
+			#-->
+			<div class="clearFix" id="userInfo">
+				<div class="lt" id="welcome">
+	                <input type="hidden" name="userId" value="+-curAdmin.id-+" id="userId"/>
+					<span id="redFont" class="redFont"></span>&nbsp;您好欢迎光临
+				</div>
+				<div class="rt"><a id="logoutLink" href="javascript:void(0);" class="logout">退出</a></div>
+			</div>
+		</div>
+		<div id="content" class="clearFix">
+			<div id="navDiv" class="navDiv">
+				<!-- ******以下所有子菜单事件处理在cfg.js中配置即可：注意每个子菜单的HTML代码中均有一唯一的"id"属性****** -->
+				<div id="superAdminItems" class="menu_list">
+				<!--#
+					if(curAdmin.role==0)
+					{ 
+				 #-->
+					<p class="menu_head"><span class="menu_ico">基础信息管理</span></p>
+					<div class="menu_body">
+						<span class="menu_body_ico"><a id="districtMenu">省市信息</a></span>
+						<span class="menu_body_ico"><a id="appMenu">应用管理</a></span>
+						<span class="menu_body_ico"><a id="xmlMenu">Xml配置管理</a></span>
+						<span class="menu_body_ico"><a id="ruleMenu">推广规则配置</a></span>
+					</div>
+					<p class="menu_head"><span class="menu_ico">统计</span></p>
+					<div class="menu_body">
+						<span class="menu_body_ico"><a id="registerMenu">注册统计</a></span>
+						<span class="menu_body_ico"><a id="installMenu">安装统计</a></span>
+					</div>
+					<p class="menu_head"><span class="menu_ico">用户管理</span></p>
+					<div class="menu_body">
+						<span class="menu_body_ico"><a id="appUserMenu">应用推广用户管理</a></span>
+						<span class="menu_body_ico"><a id="vendorUserMenu">厂商用户管理</a></span>
+						<span class="menu_body_ico"><a id="passMenu">修改密码</a></span>
+					</div>
+				<!--#
+				}else if(curAdmin.role==1)
+				{ 
+			 	#-->
+			 	<p class="menu_head"><span class="menu_ico">统计</span></p>
+					<div class="menu_body">
+						<span class="menu_body_ico"><a id="installMenu">安装统计</a></span>
+					</div>
+			 	<!--#
+				}else if(curAdmin.role==2)
+				{ 
+			 	#-->
+			 	<p class="menu_head"><span class="menu_ico">基础信息管理</span></p>
+					<div class="menu_body">
+						<span class="menu_body_ico"><a id="xmlMenu">Xml配置管理</a></span>
+					</div>
+			 	<!--#
+				} 
+			 	#-->
+				</div>
+			</div>
+			<div id="dynamicData" class="dynamicData"></div>
+		</div>
+		<div id="footer">
+			<div id="screenTips"></div>
+		</div>
+	</textarea>
+</body>
+</html>

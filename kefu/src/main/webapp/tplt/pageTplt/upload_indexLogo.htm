@@ -1,0 +1,29 @@
+<div class="tmptConf">
+<style>
+.noborderiframe {
+    border: 0 none;
+    height: 26px;
+    width:100px;
+    overflow: hidden;
+    margin: -6px;
+}
+</style>
+		
+	<div class="pagediv">
+		<div class="pagedesc"><img width="14px" height="13px" src="img/ico1.jpg">您当前的位置：个性化&nbsp;/&nbsp;首页logo上传&nbsp;</div>
+		<div class="innerLeft">
+		<!--	动态图片地址形如：http://localhost:8096/educhina/logo?nodecode=1001011 -->
+		<img class="mob_bian" width="166" height="131" src="../../../../educhina/logo?nodecode=+-libCode-+"></div>
+		<div class="innerRight">
+	
+			<form target="template01" action="/educhina/upload?type=index" method="post" enctype="multipart/form-data">
+				<span>上传首页logo 
+				<input id="index_logo" type="file" name="file">
+				<input type="submit" value="上传" onclick="return act.uploadLogo('index_logo');" /></span>
+				<span><iframe name="template01"  height="32px" class="noborderiframe" scrolling="no" frameborder="0"></iframe></span>
+			</form>
+			<p class="logotip">（logo尺寸：宽230px 高89px  logo格式：gif ）</p>
+		</div>
+		<div id="footer" class="footer"></div>
+	</div>
+</div>

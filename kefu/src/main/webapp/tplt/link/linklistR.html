@@ -1,0 +1,45 @@
+<div class="pagediv" id="linkDiv">
+<div class="pagedesc"><img width="14px" height="13px" src="img/ico1.jpg">您当前的位置：+-tableTitle-+&nbsp;/&nbsp;<span class="font5">+-dbTableTitle-+</span>&nbsp;</div>
+<table id="linkListTable" class="+-cls-+">
+<!--    <caption>+-tableTitle-+</caption>-->
+    <thead>
+        <tr>
+            <th>序号</th>
+            <!--# 
+                for(var k = 0; k < tableHeader.length; k++){
+            #-->
+                <th>+-tableHeader[k]-+</th>
+            <!--# 
+                }
+            #-->
+            <th>操作</th>
+        </tr>
+    </thead>
+    <tbody id="html">
+        <!--#  
+            for(var i = 0; i < data.size(); i++){
+                var dataObj = data.get(i);
+        #-->
+        <tr class="line">
+            <td style="word-break:break-all;word-wrap:break-word">+-(i+1)-+</td>
+        <!--# 
+                for(var j = 0; j < entityKey.length; j++){
+        #-->
+            <td style="word-break:break-all;word-wrap:break-word">
+               +-dataObj.get(entityKey[j])-+
+            </td>
+        <!--# 
+                }
+        #-->
+            <td style="word-break:break-all;word-wrap:break-word">
+                <a href="javascript:void(0);" op="mod" modid="+-dataObj.get('id')-+">修改</a>
+                <a href="javascript:void(0);" op="del" modid="+-dataObj.get('id')-+">删除</a>
+            </td>
+        </tr>
+        <!--#  
+            }
+        #-->
+    </tbody>
+</table>
+<div id="addlib"><input type="image" op="add" src="img/anniu126.jpg" op="add"></div>
+</div>

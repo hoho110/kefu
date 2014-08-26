@@ -1,0 +1,182 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>编辑帮助</title>
+<link type="text/css" rel="stylesheet" href="../../css/edu.css" />
+<script type="text/javascript" src="/easyservice-util/EasyServiceClientFullZ.js"></script>
+<script type="text/javascript" src="../../js/require_2.1.6.js"></script>
+<script type="text/javascript" src="../../js/requireJS_main4tplt.js"></script>
+<style type="text/css">
+.red {
+	color: red;
+}
+
+.virtualCenter {
+	width: 120px;
+}
+
+.fieldsWrapper {
+	max-height: 100px;
+	overflow-y: scroll;
+}
+
+span {
+	display: inline-block;
+	width: 100px;
+}
+
+li {
+	margin-left: 10px;
+}
+
+#CanCelAndOK {
+	text-align: center;
+	margin-top: 10px;
+}
+
+select {
+	width: 145px;
+}
+
+.IpRg {
+	width: 80px;
+}
+
+#rangeIp {
+	margin-left: 10px;
+	max-height: 80px;
+	overflow-y: scroll;
+}
+
+#addIp {
+	margin-left: 300px;
+}
+</style>
+<script type="text/javascript">
+require(["jquery", "module/popup", 
+         "module/service_rule","module/service_app"], function($, popup, service,appService) {
+	$(function() {
+		var $ = jQuery;
+		var ctx = new EasyServiceClient.newContext();
+		var dbId = ctx.param["id"];
+		var ruleInfo;
+		var appKeys=new java.util.ArrayList();
+		init();
+		
+		function init() {
+			var ctx = EasyServiceClient.newContext();
+			if(dbId) {
+				ruleInfo = service.find(parseInt(dbId));
+				if(ruleInfo&&ruleInfo.apps)
+				{
+					var appArray=ruleInfo.apps.split(",");
+					for(var i=0;i<appArray.length;i++)
+					{
+						appKeys.add(appArray[i]);
+					}
+				}
+			} else {
+				ruleInfo = {
+					"_t_": "com.cnebula.kefu.service.model.GeneralizationRule",
+					id: 0,
+					terminalType: "",
+					imeiNum: "",
+					regionNum:"",
+					operation:"prompt",
+					apps:""
+				};
+			}
+			ctx.ruleInfo = ruleInfo;
+			ctx.apps=appService.findAll();
+			ctx.appKeys=appKeys;
+			ejs.renderComplexNode("./editT.html", "#wrapper", ctx);
+		}
+	
+		$(".cancel").bind("click", function() {
+			popup.closeWindow();
+		});
+	
+		$(".ok").bind("click", function() {
+			var appStr="";
+			for(var i=0;i<appKeys.size();i++)
+			{
+				if(i==0)
+					appStr=appKeys.get(i);
+				else
+					appStr=appStr+","+appKeys.get(i);
+			}
+			ruleInfo.apps=appStr
+			if(dbId){
+				try {
+					service.update(ruleInfo);
+					popup.closeWindow();
+				} catch(e) {
+					alert("更新失败");
+				}
+			} else {
+				try {
+					service.create(ruleInfo);
+					popup.closeWindow();
+				} catch(e) {
+					alert("新增失败");
+				}
+			}
+			
+			parent.initSubMenu("ruleMenu");
+		});
+		
+		$("#terminalType").bind("change", function() {
+			var jqObj = $(this);
+			var val = jqObj.val();
+			ruleInfo.terminalType = val;
+		});
+		
+		$("#imeiNum").bind("change", function() {
+			var jqObj = $(this);
+			var val = jqObj.val();
+			ruleInfo.imeiNum = val;
+		});
+	
+		$("#regionNum").bind("change", function() {
+			var jqObj = $(this);
+			var val = jqObj.val();
+			ruleInfo.regionNum = val;
+		});
+		
+		$("#operation").bind("change", function() {
+			var jqObj = $(this);
+			var val = jqObj.val();
+			ruleInfo.operation = val;
+		});
+		$("#apps").bind("change", function() {
+			var jqObj = $(this);
+			var val = jqObj.val();
+			ruleInfo.apps = val;
+		});
+		$("ul").delegate("input", "change", function(e) {
+			var jqObj = $(e.target);
+			var tp = jqObj.attr("type");
+			var value=jqObj.attr("value");
+			if (tp == "checkbox") {
+				if (this.checked) {
+					appKeys.add(value);
+				} else {
+					for (var i = 0; i < appKeys.size(); i++) {
+						if (appKeys.get(i) == value) {
+							appKeys.remove(i);
+							break;
+						}
+					}
+				}
+			}
+		});
+		window.mapModel = ruleInfo;
+	});	
+});
+</script>
+</head>
+<body class="edit">
+<div id="wrapper"></div>
+</body>
+</html>

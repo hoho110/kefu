@@ -1,0 +1,59 @@
+@CHARSET "UTF-8";
+
+.hide{
+	display:none;
+}
+.bg{
+	background: #000000 none; 
+	filter:alpha(opacity=30); 
+	opacity: 0.3; 
+	position: absolute; 
+	left: 0px; top: 0px; 
+	z-index: 100;
+}
+.frameInit{
+	width:0;
+	height:0;
+	display:none;
+}
+.popwinDisplay{
+	display:block;
+	overflow:hidden;  
+	width:500px; 
+	height:500px; /*460(iframe)   27(button)  13(空白)*/
+	z-index:101;
+	position:absolute;
+	left:50%;
+	top:50%;
+	border:15px solid #666;
+	background:#FFF none; 
+	margin-left:-250px;  
+	margin-top:-250px;
+}
+.frameDisplay{
+	display:block;
+	overflow:hidden;  
+	height:460px;  
+	border:0 none;
+	margin:0;
+	padding:0;
+	top:8px;
+}
+.cmd{
+	padding-left:3px;
+	background:url(../img/popTile.jpg) repeat-x scroll 0 0 transparent;
+	text-align: right;
+	line-height: 35px;
+	border:1px solid #3B5998;
+}
+.cmd,.frameDisplay{
+	margin:0 auto;  
+	width:480px;
+}
+.cmd a{
+	font-size: 14px;
+	font-weight: bold;
+	color:#FFF;
+	margin-left: 6px;
+	cursor:default;
+}

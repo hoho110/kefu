@@ -1,0 +1,183 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>编辑帮助</title>
+<link type="text/css" rel="stylesheet" href="../../css/edu.css" />
+<script type="text/javascript" src="/easyservice-util/EasyServiceClientFullZ.js"></script>
+<script type="text/javascript" src="../../js/require_2.1.6.js"></script>
+<script type="text/javascript" src="../../js/requireJS_main4tplt.js"></script>
+<style type="text/css">
+.red {
+	color: red;
+}
+
+.virtualCenter {
+	width: 120px;
+}
+
+.fieldsWrapper {
+	max-height: 100px;
+	overflow-y: scroll;
+}
+
+span {
+	display: inline-block;
+	width: 100px;
+}
+
+li {
+	margin-left: 10px;
+}
+
+#CanCelAndOK {
+	text-align: center;
+	margin-top: 10px;
+}
+
+select {
+	width: 145px;
+}
+
+.IpRg {
+	width: 80px;
+}
+
+#rangeIp {
+	margin-left: 10px;
+	max-height: 80px;
+	overflow-y: scroll;
+}
+
+#addIp {
+	margin-left: 300px;
+}
+</style>
+<script type="text/javascript">
+require(["jquery", "module/popup", 
+         "module/service_admin","module/service_app"], function($, popup, service,appService) {
+	$(function() {
+		var $ = jQuery;
+		var ctx = new EasyServiceClient.newContext();
+		var dbId = ctx.param["id"];
+		var role=parseInt(ctx.param["role"]);
+		var adminInfo;
+		var selectedApps=new java.util.ArrayList();
+		init();
+		
+		function init() {
+			var ctx = EasyServiceClient.newContext();
+			if(dbId) {
+				adminInfo = service.find(parseInt(dbId));
+				if(adminInfo)
+				{
+					selectedApps=service.findRefs(adminInfo.id);
+				}
+			} else {
+				adminInfo = {
+					"_t_": "com.cnebula.kefu.service.ass.Administrator",
+					id: 0,
+					userName: "",
+					passWord: "",
+					role:role
+				};
+			}
+			ctx.adminInfo = adminInfo;
+			ctx.apps=appService.findAll();
+			ctx.selectedApps=selectedApps;
+			ctx.role=role;
+			ejs.renderComplexNode("./editT.html", "#wrapper", ctx);
+		}
+	
+		$(".cancel").bind("click", function() {
+			popup.closeWindow();
+		});
+	
+		$(".ok").bind("click", function() {
+			if(!adminInfo.userName||!adminInfo.passWord)
+			{
+				alert("用户名密码不能为空");
+				return;
+			}
+			if(dbId){
+				try {
+					service.update(adminInfo);
+				} catch(e) {
+					alert("更新失败");
+					return;
+				}
+			} else {
+				try {
+					var ad=service.findByUsername(adminInfo.userName);
+					if(ad)
+					{
+						alert("重复的用户名");
+						return;
+					}
+					service.create(adminInfo);
+					adminInfo=service.findByUsername(adminInfo.userName);
+				} catch(e) {
+					alert("新增失败");
+					return;
+				}
+			}
+			var refs=new java.util.ArrayList();
+			for(var i=0;i<selectedApps.size();i++)
+			{
+				var ref={
+						"_t_": "com.cnebula.kefu.service.model.ref.AdminRefApp",
+						id:0,
+						adminId: adminInfo.id,
+						appId:selectedApps.get(i).id
+				};
+				refs.add(ref);
+			}
+			service.updateRefs(adminInfo.id,refs);
+			popup.closeWindow();
+			if(role==1)
+			{
+				parent.initSubMenu("appUserMenu");			
+			}
+			else
+			{
+				parent.initSubMenu("vendorUserMenu");
+			}
+		});
+		
+		$("#userName").bind("change", function() {
+			adminInfo.userName = $(this).val();
+		});
+		
+		$("#passWord").bind("change", function() {
+			adminInfo.passWord = $(this).val();
+		});
+		$("ul").delegate("input", "change", function(e) {
+			var jqObj = $(e.target);
+			var tp = jqObj.attr("type");
+			var value=parseInt(jqObj.attr("value"));
+			if (tp == "checkbox") {
+				if (this.checked) {
+					var selectedApp={
+						"_t_": "com.cnebula.kefu.service.model.App",
+						id: value
+					};
+					selectedApps.add(selectedApp);
+				} else {
+					for (var i = 0; i < selectedApps.size(); i++) {
+						if (selectedApps.get(i).id == value) {
+							selectedApps.remove(i);
+							break;
+						}
+					}
+				}
+			}
+		});
+		window.mapModel = adminInfo;
+	});	
+});
+</script>
+</head>
+<body class="edit">
+<div id="wrapper"></div>
+</body>
+</html>

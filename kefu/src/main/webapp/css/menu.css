@@ -1,0 +1,64 @@
+.menu_list {	
+	/*width: 185px;*/
+}
+.menu_head {
+	padding: 4px 10px;
+	cursor: pointer;
+	position: relative;
+	margin:1px;
+    font-weight:bold;
+    background: url(../img/menu_img/menu_bg.gif)  center left no-repeat;
+    font-weight: bold;
+	color: #3663bb;
+
+}
+.menu_ico {
+	padding: 5px 10px;
+	cursor: pointer;
+	position: relative;
+	margin:1px;
+    font-weight:bold;
+    background: url(../img/menu_img/ico_c.jpg) center left no-repeat;
+
+}
+.menu_body {
+	display: block;
+	/**默认关闭
+	display: none;
+	**/
+}
+.menu_body_ico{
+	display:block;
+    background: url(../img/menu_img/ico_li.jpg)  no-repeat;
+	background-position: 20px 8px;
+}
+.menu_body a{
+	display:block;
+	height:30px;
+	background: url(../img/menu_img/menu_h.jpg) center bottom  no-repeat;
+	padding-left:30px;
+	text-decoration:none;
+	margin-top:5px;
+}
+.menu_body a:hover{
+  color: #000000;
+  text-decoration:none;
+}
+  
+ .menu_bg {
+	background-image: url(../img/menu_img/menu_bg.gif);
+	background-repeat: no-repeat;
+	height: 30px;
+}
+.font_menu {
+	font-weight: bold;
+	color: #3663bb;
+}
+.menu_h {
+	background-image: url(../img/menu_img/menu_h.jpg);
+	background-repeat: no-repeat;
+	height: 7px;
+}
+.menu_body a, .menu_body a:hover{
+	cursor: pointer;
+}

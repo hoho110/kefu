@@ -1,0 +1,48 @@
+<div class="pagediv" id="bindDetailDistrict">
+	<div class="pagedesc">
+		<img src="img/ico1.jpg" >
+		您当前的位置：基础信息管理
+		/
+		<span class="font5">推广规则配置</span>
+	</div>
+	<table id="summaryList" class="+-cls-+">
+		<thead>
+			<tr>
+				<!--# 
+					for(var k = 0; k < header.length; k++){
+				#-->
+					<th>+-header[k]-+</th>
+				<!--# 
+					}
+				#-->
+			</tr>
+		</thead>
+		<tbody>
+			<!--#  
+				var currentProvince="";
+				for(var i = 0; i < data.size(); i++){
+					var dataObj = data.get(i);
+			#-->
+			<tr>
+				<td>+-(i+1)-+</td>
+			<!--# 
+					var name=dataObj["name"];
+					var code=dataObj["code"];
+					if(code.substring(2)=="0000")
+					{
+						currentProvince="("+name+")";
+					}
+					else
+					{
+						name=name+currentProvince;
+					}
+			#-->
+				<td>+-name-+</td>
+				<td>+-code-+</td>
+			</tr>
+			<!--#  
+				}
+			#-->
+		</tbody>
+	</table>
+</div>

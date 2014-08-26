@@ -1,0 +1,31 @@
+<div class="pagediv" id="bindDetailInstall">
+	<table id="summaryList" class="+-cls-+">
+		<thead>
+			<tr>
+				<!--# 
+					for(var k = 0; k < header.length; k++){
+				#-->
+					<th>+-header[k]-+</th>
+				<!--# 
+					}
+				#-->
+			</tr>
+		</thead>
+		<tbody>
+			<!--#  
+				for(var i = 0; i < data.size(); i++){
+					var dataObj = data.get(i);
+			#-->
+			<tr>
+				<td>+-(i+1)-+</td>
+				<td>+-dataObj.terminalType-+</td>
+				<td>+-dataObj.appName-+</td>
+				<td>+-dataObj.appPkgName-+</td>
+				<td>+-dataObj.count-+</td>
+			</tr>
+			<!--#  
+				}
+			#-->
+		</tbody>
+	</table>
+</div>

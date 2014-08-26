@@ -1,0 +1,117 @@
+#toc
+==1  文档内容==
+1.接口调用说明\\
+2.用户管理端配置\\
+
+==2 接口调用说明==
+===2.1 推荐应用接口===
+请求基地址：http://ServerHost:ServerPort/kefu/recommend\\
+请求参数：\\
+|= 参数名|= 参数代码 |= 备注 |
+| 机型| terminalType| 非空|
+| IMEI号| imeiNum| 非空|
+| 省/直辖市名称| province| |
+| 地级市名称| city| |
+请求方式：GET或者POST\\
+
+**示例：**
+配置规则：
+
+请求：\\
+http://192.168.2.252/kefu/recommend?terminalType=apple4s&imeiNum=2&province=山东&city=威海\\
+**注：上述连接在实际请求时，需要将各参数值用UTF-8编码,上述连接编码结果如下**\\
+http://192.168.2.252/kefu/recommend?terminalType=apple4s&imeiNum=2&province=%E5%B1%B1%E4%B8%9C&city=%E5%A8%81%E6%B5%B7\\
+响应: JSON，示例如下：
+{{code}}
+{apps:[{name:"支付宝",pkgName:"com.cn",installName:"fz.pkg",downUrl:"http://192.168.2.252/kefu/download/fz.pkg",operation:"autoinstall"},{name:"百度视频",pkgName:"baidu.com",installName:"bd.pkg",downUrl:"http://192.168.2.252/kefu/download/bd.pkg",operation:"autoinstall"}]}
+{{/code}}
+
+**operation可选**\\
+prompt;autoinstall 
+===2.2 XML版本接口===
+请求基地址：http://ServerHost:ServerPort/kefu/xVersion\\
+请求参数：\\
+|= 参数名|= 参数代码 |= 备注 |
+| 客户端版本| version| 非空,int|
+请求方式：GET或者POST\\
+
+**示例：**
+配置规则：
+
+请求：\\
+http://192.168.2.252/kefu/xVersion?version=1\\
+响应: JSON，示例如下：
+{{code}}
+{updatelist:false}
+{{/code}}
+{{code}}
+{updatelist:true,version:2,downUrl:"http://192.168.2.252/kefu/xdownload/2"}
+{{/code}}
+
+
+**XML放置**
+xml文件放置于程序工作目录/xml文件夹下，以版本号为文件名，".xml"为后缀，可以放置多个文件(如果放置多个文件，则以版本号最大的文件为准)
+
+**改进：返回新地址**\\
+如果新地址存在，则返回newurl;newurl可空
+{{code}}
+{updatelist:false,newurl:"http://192.168.2.252"}
+{{/code}}
+
+===2.3 注册接口===
+请求基地址：http://ServerHost:ServerPort/kefu/regist\\
+请求参数：\\
+|= 参数名|= 参数代码 |= 备注 |
+| 机型| terminalType| 非空|
+| IMEI号| imeiNum| 非空|
+请求方式：GET或者POST\\
+
+===2.4 安装汇报接口===
+请求基地址：http://ServerHost:ServerPort/kefu/install\\
+请求参数：\\
+|= 参数名|= 参数代码 |= 备注 |
+| 机型| terminalType| 非空|
+| IMEI号| imeiNum| 非空|
+| 应用名称| appName| 非空|
+| 应用程序包名| appPkgName| 非空|
+
+请求方式：GET或者POST\\
+==3 用户管理端配置==
+===3.1 管理端登录===
+登录地址：http://serverHost:serverPort/admin
+登录密码：admin/123456
+===3.2 应用管理===
+|= 参数名 |= 备注 |
+| ID| 用于推广规则中推荐应用的配置|
+| 应用名称| |
+| 应用安装包名| |
+| 安装包存放相对路径| 安装文件存在在系统工作空间的app目录下，此处填写相对于app目录的路径 |
+
+===3.3  推广规则配置===
+|= 参数名 |= 备注 |
+| 机型| 可空，多项以逗号分隔|
+| imei号|可空，多项以逗号分隔  |
+| 地区代码| 可空，多项以逗号分隔，如涉及到地级市，使用省市拼接方式配置，如：“山东\威海”|
+| 客户端行为方式|  |
+| 推荐应用 |  3.1中应用ID|
+
+**页面暂时采用该输入框配置方式，保证先期可联调，后期再对页面优化，做成勾选式**
+==4 接口调试==
+#将后台打印日志模式调到debug模式，方法：打开conf/log.xml,找到如下一行，将filter值改为debug；//
+当实际上线使用可重新改成info模式，info模式下后台不再打印调试信息;\\
+如修改，需要重启系统
+{{code}}
+<package name="com.cnebula.kefu.server" filter="debug"/> 
+{{/code}}
+#开始调试，当正确调用接口时，后台会打印请求连接，如下所示：
+{{code}}
+[调试]2014-05-15 10:08:34		requestUrl=http://localhost/kefu/install?terminalType=Bambook S1&appName=金山清理&imeiNum=123&appPkgName=com.sohu.sohuvideo&
+{{/code}}
+#查看调试日志
+##可通过前台启动的方式，直接在前台实时查看调试日志
+##查看安装目录下/log/目录下日志文件
+#当前实现调试的接口
+##[[2.1 推荐应用接口]]
+##[[2.2 XML版本接口]]
+##[[2.3 注册接口]]
+##[[2.4 安装汇报接口]]

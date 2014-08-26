@@ -1,0 +1,521 @@
+body {
+	border: 0;
+	margin: 0;
+	padding: 0;
+	background: #EAF4FD;
+	font-size: 12px;
+	font-family: monospace;
+}
+
+.banner {
+	background-image: url(../images/bg-banner.gif);
+	background-repeat: repeat-x;
+	min-height: 80px;
+	max-height: 80px;
+	min-width: 800px;
+}
+
+.banner .appTitle {
+	position: absolute;
+	font-weight: bold;
+	color: white;
+	font-size: 32px;
+	margin-top: 24px;
+	margin-left: 20px;
+	min-width: 480px;
+}
+
+.banner .browserWarn {
+	position: absolute;
+	color: white;
+	font-size: 12px;
+	margin-top: 60px;
+	margin-left: 300px;
+	min-width: 480px;
+}
+
+.main {
+	position: relative;
+	width: 1100px;
+	margin-left: -550px;
+	left: 50%;
+}
+
+.container {
+	border: 1px solid #4297D7;
+	margin-top: 8px;
+	padding: 10px;
+}
+
+.navigate {
+	float: left;
+	min-width: 180px;
+	margin-left: 3px;
+}
+
+.flat-navigator {
+	width: 100%;
+	padding-bottom: 10px;
+	padding-top: 0px;
+	position: relative;
+	border-bottom: 1px solid #4297D7;
+}
+
+.flat-select {
+	list-style-type: none;
+}
+
+.flat-select .ui-selecting {
+	background: #FECA43;
+}
+
+.flat-select .ui-selected {
+	background: #F39814;
+	color: white;
+}
+
+.flat-link {
+	margin-right: 12px;
+	float: left;
+	width: 100px;
+	height: 30px;
+	font-size: 2em;
+	text-align: center;
+}
+
+.subcontent {
+	float: right;
+	width: 870px;
+	margin: 6px;
+	/* 	background: white; */
+	overflow: auto;
+}
+
+.enable_select tr {
+	cursor: pointer;
+}
+
+.row_selected {
+	color: red;
+	font-weight: bold;
+}
+
+.content {
+	float: right;
+	width: 880px;
+	margin: 6px;
+	/* 	background: white; */
+	overflow: auto;
+}
+
+.flat-content {
+	width: 100%;
+	/* 	background: white; */
+	overflow: auto;
+}
+
+.clear {
+	clear: both;
+}
+
+.foot {
+	min-height: 80px;
+	max-height: 80px;
+}
+
+#navigate .ui-selecting {
+	background: #F39814;
+}
+
+#navigate .ui-selected {
+	background: #2E6E9E;
+	color: white;
+}
+
+#navigate {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+}
+
+#navigate li {
+	font-weight: bold;
+	margin: 3px;
+	padding: 0.4em;
+	height: 18px;
+}
+
+.dataTables_wrapper input {
+	/*width: 150px;*/
+}
+
+.innerDetails table {
+	width: 100%;
+}
+
+.innerDetails table thead {
+	font-size: 14px;
+	font-weight: bold;
+}
+
+.innerDetails textarea {
+	width: 520px;
+	height: 220px;
+}
+
+/* Treetable
+ * ========================================================================= */
+#meta-treeTable { /* border: 1px solid #888;
+   border-collapse: collapse;
+*/
+	line-height: 1;
+	width: 100%;
+}
+
+/* Treetable.Caption
+ * ------------------------------------------------------------------------- */
+#meta-treeTable caption {
+	font-size: .9em;
+	font-weight: bold;
+}
+
+/* Treetable.Header
+ * ------------------------------------------------------------------------- */
+#meta-treeTable thead {
+	background: #2E6E9E;
+	color: white;
+	font-size: 13px;
+	font-weight: bold;
+}
+
+#meta-treeTable thead tr th {
+	border: 1px solid #888;
+	padding: .3em 1.67em .1em 1.67em;
+	text-align: center;
+}
+
+#meta-treeTable thead th.schema {
+	width: 200px;
+}
+
+#meta-treeTable input.schema {
+	width: 170px;
+}
+
+#meta-treeTable thead th.schemacn {
+	width: 200px;
+}
+
+#meta-treeTable input.schemacn {
+	width: 170px;
+}
+
+#meta-treeTable thead th.desc {
+	width: 300px;
+}
+
+#meta-treeTable input.desc {
+	width: 270px;
+}
+
+#meta-treeTable thead th.nullable {
+	width: 60px;
+}
+
+#meta-treeTable input.nullable {
+	width: 50px;
+}
+
+#meta-treeTable thead th.muti {
+	width: 60px;
+}
+
+#meta-treeTable input.muti {
+	width: 50px;
+}
+
+/* Treetable.Body
+ * ------------------------------------------------------------------------- */
+#meta-treeTable tbody tr td {
+	cursor: default;
+	padding: .3em 1.5em;
+}
+
+#meta-treeTable tbody tr.even {
+	background: white;
+}
+
+#meta-treeTable tbody tr.odd {
+	background: #E2E4FF;
+}
+
+#meta-treeTable tbody tr.modified,.save-meta-defination-modified {
+	background: #C4FFC4;
+}
+
+#meta-treeTable tr.new,.save-meta-defination-new {
+	background: #FFDDDD;
+}
+
+#meta-treeTable span.button {
+	background-attachment: scroll;
+	background-color: transparent;
+	background-image: url("../images/btn_edit_standard.png");
+	background-repeat: no-repeat;
+	border: 0 none;
+	cursor: pointer;
+	display: inline-block;
+	height: 16px;
+	line-height: 0;
+	margin: 0;
+	outline: medium none;
+	vertical-align: middle;
+	width: 16px;
+}
+
+#meta-treeTable span.button.delete {
+	background-position: -110px -64px;
+	margin-right: 2px;
+	vertical-align: middle;
+}
+
+#meta-treeTable span.button.edit {
+	background-position: -110px -48px;
+	margin-right: 2px;
+	vertical-align: middle;
+}
+
+#meta-treeTable span.button.addChild {
+	background-position: -144px 0;
+	margin-left: 2px;
+	margin-right: -1px;
+	vertical-align: middle;
+}
+
+#meta-treeTable span.button.addPNode {
+	background-image: url("../images/dms_standord.png");
+	background-repeat: no-repeat;
+	background-position: -62px -99px;
+	margin-left: 3px;
+	margin-right: -1px;
+	vertical-align: middle;
+}
+
+#meta-treeTable .done {
+	background-image: url("../images/dms_standord.png");
+	background-repeat: no-repeat;
+	background-position: -83px -123px;
+	height: 16px;
+	width: 16px;
+	line-height: 0;
+	vertical-align: middle;
+	display: inline-block;
+}
+
+.mapping-tree-container {
+	width: 100%;
+	max-height: 450px;
+	overflow: scroll;
+	max-height: 450px;
+}
+
+#mapping-Dialog td {
+	vertical-align: top;
+}
+
+.mapping-tree-editarea {
+	width: 100%;
+	max-height: 450px;
+	overflow: auto;
+	max-height: 450px;
+}
+
+.mapping-tree-editarea table {
+	text-align: center;
+}
+
+.mapping-tree-editarea textarea {
+	width: inherit;
+	min-height: 300px;
+	font-size: 16px;
+	width: 99%;
+}
+
+.mapping-tree-buttonarea {
+	font-weight: bold;
+	width: 100%;
+}
+
+.foot {
+	height: 30px;
+	text-align: center;
+	padding-top: 35px;
+	color: #2E6E9E;
+}
+
+#createJob table {
+	width: 100%;
+	height: 100%;
+}
+
+.job_manage {
+	color: green;
+	font-weight: bold;
+	font-size: 13px;
+	text-decoration: NONE;
+}
+
+.data_manage_query {
+	color: green;
+	width: 50px;
+	height: 30px;
+	font-size: 2em;
+	text-align: center;
+}
+
+.data_manage {
+	color: green;
+	font-weight: bold;
+	font-size: 13px;
+	text-decoration: NONE;
+	cursor: pointer;
+}
+
+.data_error {
+	color: red;
+	font-weight: bold;
+	font-size: 13px;
+}
+
+.fileInputContainer {
+	height: 48px;
+	width: 48px;
+	background: url(../images/DMS_master_fileUpload.png);
+	position: relative;
+	cursor: pointer;
+	float: right;
+}
+
+.fileInput {
+	height: 48px;
+	width: 48px;
+	overflow: hidden;
+	position: absolute;
+	right: 0;
+	top: 0;
+	opacity: 0;
+	filter: alpha(opacity =   0);
+	cursor: pointer;
+	float: right;
+}
+
+.uploadForm {
+	width: 880px;
+	overflow: hidden;
+}
+
+hr {
+	color: #85B5D9;
+}
+
+.barA {
+	color: blue;
+	font-weight: bold;
+	margin-left: 15px;
+	text-decoration: none;
+}
+
+._unRelease {
+	color: green;
+}
+
+._released {
+	color: red;
+	font-weight: bold;
+}
+
+._tested {
+	color: green;
+	font-weight: bold;
+}
+
+._unTested {
+	color: red;
+}
+
+.query_column {
+	width: 220px;
+}
+
+.query_operator {
+	width: 50px;
+}
+
+.query_value {
+	width: 110px;
+}
+
+.copy_mapping_history {
+	width: 80px;
+}
+
+._copyMM_rType {
+	width: 70%;
+}
+
+._copyMM_fType {
+	width: 70%;
+}
+
+._confirm_copy {
+	margin-top: 20px;
+	float: right;
+	margin-right: 80px;
+	clear: both;
+}
+
+.dms_processing {
+	background: green;
+}
+
+.testmappingContainer{background:#FFF; width:100%; height:100%; clear:both; margin-top:1px; _margin-top:-1px;}
+.testmappingSub-con{height:100%; width:100%;border:1px solid #3CF; background:#FFF; display:none;}
+.testmappingCur-sub-con{ display:block;}
+.testmappingSub-con a{ line-height:40px}
+.testmappingSub-con p{ text-align:center}
+.testmappingSub-con textarea{ height:400px; width:98%;}
+.testmappingNav {width: 800px;height: 25px; margin-left: 1px;}
+.testmappingNav ul {width: 400px;height: 25px; padding-left : 7px;}
+.testmappingNav ul li {list-style: none;display: inline-block;width: 75px;height: 25px;line-height: 25px;text-align: center;margin-left: -8px;*float:left;*margin-left:-1px;}
+.testmappingNav ul li a {background: #fff;border: 1px solid #3CF;text-decoration: none; color: #000;height: 25px; display: block;}
+.testmappingNav ul li a:hover {background: #CCEDFB }
+.testmappingNav ul li a.testmappingCur {z-index:9999;border-bottom:1px solid #FFF; color:#F00;}
+
+.dmsDataContainer{background:#FFF; width:100%; height:100%; clear:both; margin-top:1px; _margin-top:-1px;}
+.dmsDataSub-con{height:100%; width:100%;border:0 none; background:#FFF; display:none;}
+.dmsDataCur-sub-con{ display:block;}
+.dmsDataSub-con a{ line-height:40px}
+.dmsDataSub-con p{ text-align:center}
+.dmsDataSub-con textarea{ height:400px; width:98%;border:1px solid #aaa;}
+.dmsDataNav {width: 800px;height: 25px; margin-left: 1px;}
+.dmsDataNav ul {width: 400px;height: 25px; padding-left : 7px;}
+.dmsDataNav ul li {list-style: none;display: inline-block;width: 75px;height: 25px;line-height: 25px;text-align: center;margin-left: -8px;*float:left;*margin-left:-1px;}
+.dmsDataNav ul li a {background: #fff;border: 1px solid #abc;text-decoration: none; color: #000;height: 25px; display: block;}
+.dmsDataNav ul li a:hover {background: #CCEDFB }
+.dmsDataNav ul li a.dmsDataCur {z-index:9999;border-bottom:1px solid #FFF; color:#F00;}
+.dmsDataContainer td{
+	line-height:normal;
+}
+#jqgh_dms_table_data_name{
+	height:auto;
+}
+#jqgh_dms_table_data_name .ui-icon-asc{
+	margin-top:2px;
+}
+#jqgh_dms_table_data_name .ui-icon-desc{
+	margin-top:8px;
+}
+table#excel td{
+	line-height:normal;
+}

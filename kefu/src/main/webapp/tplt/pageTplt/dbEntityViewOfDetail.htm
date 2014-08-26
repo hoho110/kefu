@@ -1,0 +1,79 @@
+<div id="basic">
+	<p class="title">基本信息</p>
+	<div class="metaInfo">
+		<span class="k">库名称</span>
+		<span class="v">+-dbName-+</span>
+	</div>
+	<div class="metaInfo">
+		<span class="k">资源类型</span>
+		<span class="v">+-schemeName-+</span>
+	</div>
+
+	<div class="metaInfo">
+		<span class="k">语种</span>
+		<span class="v">+-lang-+</span>
+	</div>
+	<div class="metaInfo">
+		<span class="k">状态</span>
+		<span class="v">+-released-+</span>
+	</div>
+	<div class="metaInfo">
+		<span class="k">发布到共享域E读的方式</span>
+		<div>
+		<!--#
+				var hasShare = false;
+				if(sharedNodes){
+					hasShare = true;
+				}
+				
+				var proNums = centerNodeInfoList.size(); 
+				for(var i = 0; i < proNums; i++){
+					var nodeInfo = centerNodeInfoList.get(i);
+					var nId = nodeInfo.id;
+					var isShare = false;
+					if(hasShare){
+						var size = sharedNodes.size();
+						for(var n=0;n<size;n++){
+							var nId2 = sharedNodes.get(n).id;
+							if(nId == nId2){
+								isShare == true;
+								break;
+							}						
+						}
+					}
+					#-->
+				<div class="level2">
+				<span class="k">+-nodeInfo.name-+:</span><span class="v">+-(isShare) ? '发布' : '不发布' -+</span>
+				</div>
+				<!--# 
+				}
+				#-->
+		</div>
+	</div>
+</div>
+<div id="support">
+	<p class="title">维护信息</p>
+	<div class="metaInfo">
+		<span class="k">资源数量</span>
+		<span class="v">+-resSum-+</span>
+	</div>
+	<div class="metaInfo">
+		<span class="k">最后数据导入时间</span>
+		<span class="v">+-lastDataTimeStr-+</span>
+	</div>
+	<div class="metaInfo">
+		<span class="k">最后数据导入者</span>
+		<span class="v">+-lastDataCreator-+</span>
+	</div>
+	<div class="metaInfo">
+		<span class="k">最后库配置修改时间</span>
+		<span class="v">+-lastmodifytimeStr-+</span>
+	</div>
+	<div class="metaInfo">
+		<span class="k">最后库配置修改者</span>
+		<span class="v">+-lastmodifier-+</span>
+	</div>
+</div>
+<div class="userCmd">
+	<input type="image" onclick="popup.closeWindow();" src="../../img/anniu3.jpg">
+</div>

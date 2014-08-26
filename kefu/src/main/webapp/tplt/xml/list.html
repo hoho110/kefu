@@ -1,0 +1,54 @@
+<div class="pagediv" id="bindDetailXml">
+	<div class="pagedesc">
+		<img src="img/ico1.jpg" >
+		您当前的位置：基础信息管理
+		/
+		<span class="font5">应用配置</span>
+	</div>
+	<table id="summaryList" class="+-cls-+">
+		<thead>
+			<tr>
+				<!--# 
+					for(var k = 0; k < header.length; k++){
+				#-->
+					<th>+-header[k]-+</th>
+				<!--# 
+					}
+				#-->
+					<th>操作</th>
+			</tr>
+		</thead>
+		<tbody>
+			<!--#  
+				for(var i = 0; i < data.size(); i++){
+					var dataObj = data.get(i);
+			#-->
+			<tr>
+			<!--# 
+					for(var j = 0; j < props.length; j++){
+						var strs=props[j].split(".");
+						var value=dataObj[strs[0]];
+						for(var l=1;l<strs.length;l++)
+						{
+							value=value[strs[l]];
+						}
+			#-->
+				<td>+-value-+</td>
+			<!--#			
+					}
+			#-->
+				<td>
+					<a href="javascript:void(0);" class="detailXmlEdit" detailXmlId="+-dataObj.id-+">+-op[0]-+</a>
+					<a href="javascript:void(0);" class="detailXmlDel" detailXmlId="+-dataObj.id-+">+-op[1]-+</a>	
+					<a href="/kefu/download/xml/+-dataObj.path-+">下载</a>	
+				</td>
+			</tr>
+			<!--#  
+				}
+			#-->
+		</tbody>
+	</table>
+	<div id="addlib">
+		<input type="image" src="img/xz.gif" id="createDetailXml" />
+	</div>
+</div>

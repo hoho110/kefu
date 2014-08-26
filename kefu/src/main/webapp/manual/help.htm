@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>help</title>
+<style type="text/css"><!--
+/* @group RESET */
+/* --------------------------------------------------------------
+
+  Reset.css
+  * Resets default browser CSS styles.
+
+  Created by Erik Meyer:
+  * meyerweb.com/eric/thoughts/2007/05/01/reset-reloaded/
+-------------------------------------------------------------- */
+
+* html {
+  overflow-y: auto;
+}
+html, body {
+    height: 100%;
+}
+--></style>
+<link type="text/css" rel="stylesheet" href="_cssAndJsDir_/zyxwiki.css"/>
+<link type="text/css" rel="stylesheet" href="_cssAndJsDir_/shThemeDefault.css"/>
+<link type="text/css" rel="stylesheet" href="_cssAndJsDir_/shCore.css"/>
+<script type="text/javascript" src="_cssAndJsDir_/shCore.js"></script>
+<script type="text/javascript" src="_cssAndJsDir_/shCore.js"></script>
+<script type="text/javascript" src="_cssAndJsDir_/shBrushCpp.js"></script>
+<script type="text/javascript" src="_cssAndJsDir_/shBrushCSharp.js"></script>
+<script type="text/javascript" src="_cssAndJsDir_/shBrushCss.js"></script>
+<script type="text/javascript" src="_cssAndJsDir_/shBrushGroovy.js"></script>
+<script type="text/javascript" src="_cssAndJsDir_/shBrushJavaFX.js"></script>
+<script type="text/javascript" src="_cssAndJsDir_/shBrushJScript.js"></script>
+<script type="text/javascript" src="_cssAndJsDir_/shBrushPerl.js"></script>
+<script type="text/javascript" src="_cssAndJsDir_/shBrushPhp.js"></script>
+<script type="text/javascript" src="_cssAndJsDir_/shBrushPlain.js"></script>
+<script type="text/javascript" src="_cssAndJsDir_/shBrushPowerShell.js"></script>
+<script type="text/javascript" src="_cssAndJsDir_/shBrushPython.js"></script>
+<script type="text/javascript" src="_cssAndJsDir_/shBrushRuby.js"></script>
+<script type="text/javascript" src="_cssAndJsDir_/shBrushScala.js"></script>
+<script type="text/javascript" src="_cssAndJsDir_/shBrushSql.js"></script>
+<script type="text/javascript" src="_cssAndJsDir_/shBrushVb.js"></script>
+<script type="text/javascript" src="_cssAndJsDir_/shBrushXml.js"></script>
+<script type="text/javascript" src="_cssAndJsDir_/shBrushJava.js"></script>
+<script type="text/javascript">
+SyntaxHighlighter.config.clipboardSwf = '_cssAndJsDir_/clipboard.swf'
+SyntaxHighlighter.all();
+</script>
+  </head>
+  <body>
+
+<div id="xwikimaincontainer">
+<div id="xwikimaincontainerinner">
+
+<div class="xwikiToc"><ul>
+<li class="toc_level_2"><a href="#1__文档内容"><span class="toctext">1  文档内容</span></a></li>
+<li class="toc_level_2"><a href="#2_接口调用说明"><span class="toctext">2 接口调用说明</span></a></li>
+<li class="toc_level_3"><a href="#2.1_推荐应用接口"><span class="toctext">2.1 推荐应用接口</span></a></li>
+<li class="toc_level_3"><a href="#2.2_XML版本接口"><span class="toctext">2.2 XML版本接口</span></a></li>
+<li class="toc_level_3"><a href="#2.3_注册接口"><span class="toctext">2.3 注册接口</span></a></li>
+<li class="toc_level_3"><a href="#2.4_安装汇报接口"><span class="toctext">2.4 安装汇报接口</span></a></li>
+<li class="toc_level_2"><a href="#3_用户管理端配置"><span class="toctext">3 用户管理端配置</span></a></li>
+<li class="toc_level_3"><a href="#3.1_管理端登录"><span class="toctext">3.1 管理端登录</span></a></li>
+<li class="toc_level_3"><a href="#3.2_应用管理"><span class="toctext">3.2 应用管理</span></a></li>
+<li class="toc_level_3"><a href="#3.3__推广规则配置"><span class="toctext">3.3  推广规则配置</span></a></li>
+<li class="toc_level_2"><a href="#4_接口调试"><span class="toctext">4 接口调试</span></a></li>
+</ul>
+</div>
+
+<h2><span id="1__文档内容">1  文档内容</span></h2>
+<p>1.接口调用说明<br/>
+2.用户管理端配置<br/></p>
+<h2><span id="2_接口调用说明">2 接口调用说明</span></h2>
+<h3><span id="2.1_推荐应用接口">2.1 推荐应用接口</span></h3>
+<p>请求基地址：<a href="http://ServerHost:ServerPort/kefu/recommend" rel="nofollow">http://ServerHost:ServerPort/kefu/recommend</a><br/>
+请求参数：<br/></p>
+<table border='1'><tr><th>参数名</th><th>参数代码 </th><th>备注 </th></tr>
+<tr><td>机型</td><td>terminalType</td><td>非空</td></tr>
+<tr><td>IMEI号</td><td>imeiNum</td><td>非空</td></tr>
+<tr><td>省/直辖市名称</td><td>province</td><td></td></tr>
+<tr><td>地级市名称</td><td>city</td><td></td></tr>
+</table>
+<p>请求方式：GET或者POST<br/></p>
+<p><strong>示例：</strong>
+配置规则：</p>
+<p>请求：<br/>
+<a href="http://192.168.2.252/kefu/recommend?terminalType=apple4s&amp;imeiNum=2&amp;province=" rel="nofollow">http://192.168.2.252/kefu/recommend?terminalType=apple4s&amp;imeiNum=2&amp;province=</a>山东&amp;city=威海<br/>
+<strong>注：上述连接在实际请求时，需要将各参数值用UTF-8编码,上述连接编码结果如下</strong><br/>
+<a href="http://192.168.2.252/kefu/recommend?terminalType=apple4s&amp;imeiNum=2&amp;province=%E5%B1%B1%E4%B8%9C&amp;city=%E5%A8%81%E6%B5%B7" rel="nofollow">http://192.168.2.252/kefu/recommend?terminalType=apple4s&amp;imeiNum=2&amp;province=%E5%B1%B1%E4%B8%9C&amp;city=%E5%A8%81%E6%B5%B7</a><br/>
+响应: JSON，示例如下：
+<div class="code"><pre class="brush:java">
+
+{apps:[{name:&quot;支付宝&quot;,pkgName:&quot;com.cn&quot;,installName:&quot;fz.pkg&quot;,downUrl:&quot;http://192.168.2.252/kefu/download/fz.pkg&quot;,operation:&quot;autoinstall&quot;},{name:&quot;百度视频&quot;,pkgName:&quot;baidu.com&quot;,installName:&quot;bd.pkg&quot;,downUrl:&quot;http://192.168.2.252/kefu/download/bd.pkg&quot;,operation:&quot;autoinstall&quot;}]}
+</pre></div>
+</p>
+<p><strong>operation可选</strong><br/>
+prompt;autoinstall </p>
+<h3><span id="2.2_XML版本接口">2.2 XML版本接口</span></h3>
+<p>请求基地址：<a href="http://ServerHost:ServerPort/kefu/xVersion" rel="nofollow">http://ServerHost:ServerPort/kefu/xVersion</a><br/>
+请求参数：<br/></p>
+<table border='1'><tr><th>参数名</th><th>参数代码 </th><th>备注 </th></tr>
+<tr><td>客户端版本</td><td>version</td><td>非空,int</td></tr>
+</table>
+<p>请求方式：GET或者POST<br/></p>
+<p><strong>示例：</strong>
+配置规则：</p>
+<p>请求：<br/>
+<a href="http://192.168.2.252/kefu/xVersion?version=1" rel="nofollow">http://192.168.2.252/kefu/xVersion?version=1</a><br/>
+响应: JSON，示例如下：
+<div class="code"><pre class="brush:java">
+
+{updatelist:false}
+</pre></div>
+
+<div class="code"><pre class="brush:java">
+
+{updatelist:true,version:2,downUrl:&quot;http://192.168.2.252/kefu/xdownload/2&quot;}
+</pre></div>
+</p>
+<p><strong>XML放置</strong>
+xml文件放置于程序工作目录/xml文件夹下，以版本号为文件名，&quot;.xml&quot;为后缀，可以放置多个文件(如果放置多个文件，则以版本号最大的文件为准)</p>
+<p><strong>改进：返回新地址</strong><br/>
+如果新地址存在，则返回newurl;newurl可空
+<div class="code"><pre class="brush:java">
+
+{updatelist:false,newurl:&quot;http://192.168.2.252&quot;}
+</pre></div>
+</p>
+<h3><span id="2.3_注册接口">2.3 注册接口</span></h3>
+<p>请求基地址：<a href="http://ServerHost:ServerPort/kefu/regist" rel="nofollow">http://ServerHost:ServerPort/kefu/regist</a><br/>
+请求参数：<br/></p>
+<table border='1'><tr><th>参数名</th><th>参数代码 </th><th>备注 </th></tr>
+<tr><td>机型</td><td>terminalType</td><td>非空</td></tr>
+<tr><td>IMEI号</td><td>imeiNum</td><td>非空</td></tr>
+</table>
+<p>请求方式：GET或者POST<br/></p>
+<h3><span id="2.4_安装汇报接口">2.4 安装汇报接口</span></h3>
+<p>请求基地址：<a href="http://ServerHost:ServerPort/kefu/install" rel="nofollow">http://ServerHost:ServerPort/kefu/install</a><br/>
+请求参数：<br/></p>
+<table border='1'><tr><th>参数名</th><th>参数代码 </th><th>备注 </th></tr>
+<tr><td>机型</td><td>terminalType</td><td>非空</td></tr>
+<tr><td>IMEI号</td><td>imeiNum</td><td>非空</td></tr>
+<tr><td>应用名称</td><td>appName</td><td>非空</td></tr>
+<tr><td>应用程序包名</td><td>appPkgName</td><td>非空</td></tr>
+</table>
+<p>请求方式：GET或者POST<br/></p>
+<h2><span id="3_用户管理端配置">3 用户管理端配置</span></h2>
+<h3><span id="3.1_管理端登录">3.1 管理端登录</span></h3>
+<p>登录地址：<a href="http://serverHost:serverPort/admin" rel="nofollow">http://serverHost:serverPort/admin</a>
+登录密码：admin/123456</p>
+<h3><span id="3.2_应用管理">3.2 应用管理</span></h3>
+<table border='1'><tr><th>参数名 </th><th>备注 </th></tr>
+<tr><td>ID</td><td>用于推广规则中推荐应用的配置</td></tr>
+<tr><td>应用名称</td><td></td></tr>
+<tr><td>应用安装包名</td><td></td></tr>
+<tr><td>安装包存放相对路径</td><td>安装文件存在在系统工作空间的app目录下，此处填写相对于app目录的路径 </td></tr>
+</table>
+<h3><span id="3.3__推广规则配置">3.3  推广规则配置</span></h3>
+<table border='1'><tr><th>参数名 </th><th>备注 </th></tr>
+<tr><td>机型</td><td>可空，多项以逗号分隔</td></tr>
+<tr><td>imei号</td><td>可空，多项以逗号分隔  </td></tr>
+<tr><td>地区代码</td><td>可空，多项以逗号分隔，如涉及到地级市，使用省市拼接方式配置，如：“山东\威海”</td></tr>
+<tr><td>客户端行为方式</td><td></td></tr>
+<tr><td>推荐应用 </td><td>3.1中应用ID</td></tr>
+</table>
+<p><strong>页面暂时采用该输入框配置方式，保证先期可联调，后期再对页面优化，做成勾选式</strong></p>
+<h2><span id="4_接口调试">4 接口调试</span></h2>
+<ol><li>将后台打印日志模式调到debug模式，方法：打开conf/log.xml,找到如下一行，将filter值改为debug；<em>
+当实际上线使用可重新改成info模式，info模式下后台不再打印调试信息;<br/>
+如修改，需要重启系统
+<div class="code"><pre class="brush:java">
+
+&lt;package name=&quot;com.cnebula.kefu.server&quot; filter=&quot;debug&quot;/&gt; 
+</pre></div>
+</em></li>
+<li>开始调试，当正确调用接口时，后台会打印请求连接，如下所示：
+<div class="code"><pre class="brush:java">
+
+[调试]2014-05-15 10:08:34		requestUrl=http://localhost/kefu/install?terminalType=Bambook S1&amp;appName=金山清理&amp;imeiNum=123&amp;appPkgName=com.sohu.sohuvideo&amp;
+</pre></div>
+</li>
+<li>查看调试日志<ol><li>可通过前台启动的方式，直接在前台实时查看调试日志</li>
+<li>查看安装目录下/log/目录下日志文件</li></ol>
+</li>
+<li>当前实现调试的接口<ol><li><a href="#2.1_推荐应用接口" rel="nofollow">2.1 推荐应用接口</a></li>
+<li><a href="#2.2_XML版本接口" rel="nofollow">2.2 XML版本接口</a></li>
+<li><a href="#2.3_注册接口" rel="nofollow">2.3 注册接口</a></li>
+<li><a href="#2.4_安装汇报接口" rel="nofollow">2.4 安装汇报接口</a></li></ol>
+</li></ol>
+</div>
+</div>
+  </body>
+</html>
