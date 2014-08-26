@@ -28,8 +28,8 @@
 	</bean>
 	<bean id="dataSource" class="com.cnebula.kefu.server.db.DerbyDataSourceImpl">
 		<property name="initSQLLocation" value="classpath:init.sql"></property>
-		<property name="dataLocation" value="#{dataLocation}"></property>
-		<property name="newIP" value="#{newIP}"></property>
+		<property name="dataLocation" value="D:/tools/sts-bundle/sts-3.6.0.RELEASE/workspace/runtime"></property>
+		<property name="newIP" value=""></property>
 	</bean>
 	<bean id="districtServiceImpl" class="com.cnebula.kefu.server.DistrictServiceImpl">
 		<property name="cityLocation" value="classpath:city.txt"></property>
