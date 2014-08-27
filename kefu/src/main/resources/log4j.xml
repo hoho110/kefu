@@ -11,11 +11,8 @@
 	</appender>
 	
 	<!-- Application Loggers -->
-	<logger name="kefu">
-		<level value="debug" />
-	</logger>
 	<logger name="com.easyservice">
-		<level value="debug" />
+		<level value="info" />
 	</logger>
 	
 	<!-- 3rdparty Loggers -->
@@ -31,6 +28,9 @@
 	</logger>
 
 	<logger name="org.springframework.web">
+		<level value="info" />
+	</logger>
+	<logger name="com.cnebula.kefu">
 		<level value="info" />
 	</logger>
 

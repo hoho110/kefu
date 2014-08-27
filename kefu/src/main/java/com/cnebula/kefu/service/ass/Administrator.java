@@ -1,5 +1,8 @@
 package com.cnebula.kefu.service.ass;
-public class Administrator {
+
+import com.easyservice.security.Permit;
+
+public class Administrator implements Permit{
 	/*
 	 * 标识
 	 */
@@ -40,5 +43,9 @@ public class Administrator {
 	}
 	public void setPassWord(String passWord) {
 		this.passWord = passWord;
+	}
+	@Override
+	public int returnPrivilege() {
+		return 1;
 	}
 }

@@ -1,13 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<StaticRolesConfig enabled="false">
+<StaticRolesConfig enabled="true">
 	<!--匿名用户(未登陆)角色,privilege为-1-->
 	<Role privilege = "-1">
 		<permissionRules>
-			<PermissionRule  entityLimitType="我可调用的服务" operations="我可调用的方法1;我可调用的方法2"/>
-		</permissionRules>
-	</Role>
-	<Role privilege = "1">
-		<permissionRules>
+			<PermissionRule  entityLimitType="com.cnebula.kefu.service.ass.IAdministratorService" />
 		</permissionRules>
 	</Role>
 </StaticRolesConfig>

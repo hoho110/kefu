@@ -25,12 +25,14 @@ public class AuthorityValidateServiceImpl implements IAuthorityValidateService{
 		{
 			if(!(user instanceof Permit))
 				throw new PermissionException("user entity must implements Permit");
-			privilege=((Permit)user).getPrivilege();
+			privilege=((Permit)user).returnPrivilege();
 		}
 		if(fetchServiceSdl)
 			logger.debug("用户角色：{privilege:"+privilege+"},申请获取服务:"+applyService+"定义");
 		else
 			logger.debug("用户角色：{privilege:"+privilege+"},申请执行服务:"+applyService+"方法:"+applyMethod);
+		if(privilege==1)
+			return true;
 		Role role=getRoleByPrivilege(privilege);
 		if(role==null){
 			logger.debug("未找到该用户角色配置");
