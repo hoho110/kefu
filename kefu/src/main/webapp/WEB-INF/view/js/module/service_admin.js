@@ -1,5 +1,4 @@
 define(["/easyservice/com.cnebula.kefu.service.ass.IAdministratorService?json",
-        "/easyservice/com.cnebula.common.security.auth.ILoginService?json",
         "/easyservice/com.cnebula.kefu.service.IAdminRefAppService?json"], function(){ 	
 	
 	var adminService = EasyServiceClient.getRemoteProxy("/easyservice/com.cnebula.kefu.service.ass.IAdministratorService");

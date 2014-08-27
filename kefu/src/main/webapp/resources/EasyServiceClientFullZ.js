@@ -1826,7 +1826,7 @@ var ejs;
 				n = document.getElementById(n.substring(1));
 			}else if (c == '.' || c == '/' || n.indexOf('http://') == 0){
 				var ar = EasyServiceClient._createAjaxRequest();
-				ar.open("POST", n, false);
+				ar.open("GET", n, false);
 				ar.setRequestHeader("Content-type", "text");
 				ar.send();
 				return ar.responseText;

@@ -56,7 +56,7 @@ public class AppUploadServlet{
 		}
 		return tempDir;
 	}
-	@RequestMapping(value={"/kefu/upload"})
+	@RequestMapping(value={"/kefu/upload","/kefu/upload/xml"})
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 	    // 解析 request，判断是否有上传文件  

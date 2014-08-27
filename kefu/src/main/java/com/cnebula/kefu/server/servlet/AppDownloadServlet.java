@@ -43,7 +43,7 @@ public class AppDownloadServlet{
 		}
 		return xmlDir;
 	}
-	@RequestMapping(value={"/kefu/download/{filename}"})
+	@RequestMapping(value={"/kefu/download/{filename}","/kefu/download/xml/{filename}"})
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		request.setCharacterEncoding(ServletUtils.CHARSET);
