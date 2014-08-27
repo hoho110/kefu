@@ -49,6 +49,9 @@ public interface IAdministratorService {
 	public void update(Administrator admin)throws Exception;
 	
 	public void delete(int id)throws Exception;
+	public void logout();
+	public void loginByNamePassword(String username,String password)throws Exception;
+	public boolean isLogin() throws SessionTimeOutException;
 //
 //	/**
 //	 * 根据管理员ID，获得管理员的密码

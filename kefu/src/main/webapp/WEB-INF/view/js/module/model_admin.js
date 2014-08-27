@@ -145,8 +145,7 @@ define(["module/service_admin", "module/cfg","module/popup", "module/util", "jqu
 		},
 		/*判断是否登录*/
 		isLogin : function(){
-			var loginStatus = adminService.getLoginStatus();
-			return loginStatus.npLogin;	
+			return adminService.isLogin();
 		},
 		/*判断是否登录，如果未登录则跳到登录页面*/
 		checkLogin : function(){

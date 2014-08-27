@@ -115,4 +115,30 @@ public class AdministratorServiceImpl implements IAdministratorService {
 		 HttpSession session=((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest().getSession();
 		 return session;
 	}
+
+
+	@Override
+	public void logout() {
+		HttpSession session=getCurrentSession();
+		if(session==null)
+			return;
+		session.removeAttribute(SESSION_ATTRIBUTENAME_USER);
+	}
+
+
+	@Override
+	public void loginByNamePassword(String username, String password)
+			throws Exception {
+		Administrator admin=getAdmin(username, password);
+		if(admin==null)
+			throw new Exception("用户名或密码错误");
+		HttpSession session=getCurrentSession();
+		session.setAttribute(SESSION_ATTRIBUTENAME_USER, admin);
+	}
+
+
+	@Override
+	public boolean isLogin() throws SessionTimeOutException {
+		return getCurrentAdmin()==null?false:true;
+	}
 }

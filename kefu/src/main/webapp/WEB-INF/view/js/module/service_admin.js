@@ -3,7 +3,6 @@ define(["/easyservice/com.cnebula.kefu.service.ass.IAdministratorService?json",
         "/easyservice/com.cnebula.kefu.service.IAdminRefAppService?json"], function(){ 	
 	
 	var adminService = EasyServiceClient.getRemoteProxy("/easyservice/com.cnebula.kefu.service.ass.IAdministratorService");
-	var loginService = EasyServiceClient.getRemoteProxy("/easyservice/com.cnebula.common.security.auth.ILoginService");
 	var adminRefAppService=EasyServiceClient.getRemoteProxy("/easyservice/com.cnebula.kefu.service.IAdminRefAppService");
 	return {
 		updatePassword: function(userId,pwd){
@@ -14,14 +13,14 @@ define(["/easyservice/com.cnebula.kefu.service.ass.IAdministratorService?json",
 		},
 		
 		// 封装loginService的对应方法
-		getLoginStatus : function(){
-			return loginService.getLoginStatus();
+		isLogin : function(){
+			return adminService.isLogin();
 		},
 		loginByNamePassword: function(n, p) {
-			loginService.loginByNamePassword(n, p);
+			adminService.loginByNamePassword(n, p);
 		},
 		logout: function() {
-			loginService.logout();
+			adminService.logout();
 		},
 		findRefs:function(adminId) {
 			return adminRefAppService.findRefs(adminId);
