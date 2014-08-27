@@ -2,8 +2,10 @@ package com.cnebula.kefu.server;
 
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -34,12 +36,12 @@ public class DistrictServiceImpl implements IDistrictService {
 	@PostConstruct
 	protected void init() throws IOException {
 		File file=cityLocation.getFile();
-		FileReader fr=null;
         BufferedReader br=null;
+        InputStreamReader isr=null;
         try
         {
-        	fr=new FileReader(file); 
-        	br=new BufferedReader(fr);
+        	isr= new InputStreamReader(new FileInputStream(file), "UTF-8"); 
+        	br=new BufferedReader(isr);
         	 String line=null;
         	 while ((line=br.readLine())!=null) {
         		 if(line.trim().length()==0)
@@ -59,8 +61,8 @@ public class DistrictServiceImpl implements IDistrictService {
         {
         	if(br!=null)
 				try {br.close();} catch (IOException e) {}
-			if(fr!=null)
-				try {fr.close();} catch (IOException e) {}
+			if(isr!=null)
+				try {isr.close();} catch (IOException e) {}
         }
 	}
 }
