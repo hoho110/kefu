@@ -48,6 +48,7 @@ public class DistrictServiceImpl implements IDistrictService {
         		 district.setCode(line.substring(0, 6));
         		 district.setName(line.substring(7).trim());
         		 districts.add(district);
+        		 log.info("加载:"+district);
              }
         	 log.info("加载省市信息完毕");
         }catch(Exception e)

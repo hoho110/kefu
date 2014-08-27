@@ -19,4 +19,8 @@ public class District {
 	public void setCode(String code) {
 		this.code = code;
 	}
+	@Override
+	public String toString() {
+		return "District [name=" + name + ", code=" + code + "]";
+	}
 }
