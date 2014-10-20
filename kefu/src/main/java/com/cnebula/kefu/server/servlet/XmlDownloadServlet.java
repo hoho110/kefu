@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.log4j.Logger;
+import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -18,7 +19,7 @@ import com.cnebula.kefu.server.KefuConfig;
 import com.cnebula.kefu.server.tools.ServletUtils;
 import com.cnebula.kefu.server.tools.StringUtils;
 import com.cnebula.kefu.server.tools.VerifyException;
-@Service
+@Controller
 public class XmlDownloadServlet{
 	private static File xmlDir=null;
 	Logger log=Logger.getLogger(this.getClass());
@@ -32,7 +33,7 @@ public class XmlDownloadServlet{
 		}
 		return xmlDir;
 	}
-	@RequestMapping(value={"/kefu/xdownload","/kefu/xdownload/{version}"})
+	@RequestMapping(value={"/kefu/xdownload","/kefu/xdownload/{version}","/kefu/xVersion"})
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		request.setCharacterEncoding(ServletUtils.CHARSET);
